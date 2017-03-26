@@ -142,9 +142,9 @@ class App extends Component{
         }
     }
     componentWillMount(){
-        // window.fetch('MycodeHero.github.io/zhihu-react/data/data.txt').then(function(json){
-        //     console.log(json)
-        // })
+        window.fetch('./data/data.txt').then(function(json){
+            console.log(json)
+        })
         let {data} = this.props;
         data.forEach((ele,index)=>{
             ele.canInvite = true;
