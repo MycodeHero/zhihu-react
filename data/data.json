@@ -1,4 +1,4 @@
-var data = [
+[
     {
         "name" : "法克大人",
         "position": "",
@@ -29,14 +29,14 @@ var data = [
     },
     {
         "name" : "丸子先生",
-        "position": '',
+        "position": "",
         "interest": "可能对CMCC话题下的问题感兴趣",
         "img": "./src/img/5.jpg",
         "id" : 5
     },
     {
         "name" : "EMT艾米莉亚",
-        "position": '',
+        "position": "",
         "interest": "可能对CMCC话题下的问题感兴趣",
         "img": "./src/img/6.jpg",
         "id" : 6

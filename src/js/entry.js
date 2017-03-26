@@ -1,64 +1,6 @@
 import React, {Component} from 'react';
 import ReactDom from 'react-dom';
 import '../less/index.less';
-var data = [
-    {
-        "name" : "法克大人",
-        "position": "",
-        "interest": "可能对CMCC话题下的问题感兴趣",
-        "img": "./src/img/1.jpg",
-        "id" : 1
-    },
-    {
-        "name" : "Pellegrini",
-        "position": "文科心, 理科命",
-        "interest": "可能对CMCC话题下的问题感兴趣",
-        "img": "./src/img/2.jpg",
-        "id" : 2
-    },
-    {
-        "name" : "尼诺",
-        "position": "enough talk, let's fuck",
-        "interest": "可能对CMCC话题下的问题感兴趣",
-        "img": "./src/img/3.jpg",
-        "id" : 3
-    },
-    {
-        "name" : "柒柒",
-        "position": "公务员",
-        "interest": "可能对CMCC话题下的问题感兴趣",
-        "img": "./src/img/4.jpg",
-        "id" : 4
-    },
-    {
-        "name" : "丸子先生",
-        "position": '',
-        "interest": "可能对CMCC话题下的问题感兴趣",
-        "img": "./src/img/5.jpg",
-        "id" : 5
-    },
-    {
-        "name" : "EMT艾米莉亚",
-        "position": '',
-        "interest": "可能对CMCC话题下的问题感兴趣",
-        "img": "./src/img/6.jpg",
-        "id" : 6
-    },
-    {
-        "name" : "天南老哥",
-        "position": "尚留余威惩不义",
-        "interest": "可能对CMCC话题下的问题感兴趣",
-        "img": "./src/img/7.jpg",
-        "id" : 7
-    },
-    {
-        "name" : "心脏杰",
-        "position": "抑郁症患者。学生。",
-        "interest": "可能对CMCC话题下的问题感兴趣",
-        "img": "./src/img/8.jpg",
-        "id" : 8
-    }
-]
 class SearchBar extends Component{
     changeText(){
         this.props.onFileChange(this.refs.ipt.value);
@@ -142,16 +84,17 @@ class App extends Component{
         }
     }
     componentWillMount(){
-        window.fetch('./data/data.txt').then(function(response){
+        var _self = this;
+        window.fetch('./data/data.json').then(function(response){
             return response.json();
-        }).then(function(json){
-            console.log(json)
+        }).then(function(data){
+            data.forEach((ele,index)=>{
+                ele.canInvite = true;
+            })
+            _self.setState({
+                List: data
+            })
         })
-        let {data} = this.props;
-        data.forEach((ele,index)=>{
-            ele.canInvite = true;
-        })
-        this.state.List = data;
     }
     onFileChange(text){
         this.setState({
@@ -189,6 +132,6 @@ class App extends Component{
 }
 
 ReactDom.render(
-    <App data = {data}/>,
+    <App/>,
     document.getElementById('root')
 )
