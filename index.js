@@ -24226,53 +24226,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var SearchBar = function (_Component) {
-    _inherits(SearchBar, _Component);
-
-    function SearchBar() {
-        _classCallCheck(this, SearchBar);
-
-        return _possibleConstructorReturn(this, (SearchBar.__proto__ || Object.getPrototypeOf(SearchBar)).apply(this, arguments));
-    }
-
-    _createClass(SearchBar, [{
-        key: 'changeText',
-        value: function changeText() {
-            this.props.onFileChange(this.refs.ipt.value);
-        }
-    }, {
-        key: 'render',
-        value: function render() {
-            var inviteList = this.props.inviteList;
-
-            var arr = inviteList.map(function (ele, index) {
-                return _react2.default.createElement(
-                    'strong',
-                    { style: { color: '#262626' }, key: index },
-                    ele.name,
-                    ','
-                );
-            });
-            return _react2.default.createElement(
-                'div',
-                { className: 'search' },
-                _react2.default.createElement(
-                    'span',
-                    null,
-                    '\u4F60\u5DF2\u9080\u8BF7 ',
-                    arr.slice(0, 3),
-                    '\u9080\u8BF7 ',
-                    arr.length,
-                    ' \u4EBA'
-                ),
-                _react2.default.createElement('input', { ref: 'ipt', placeholder: '\u641C\u7D22\u4F60\u60F3\u9080\u8BF7\u7684\u4EBA', onChange: this.changeText.bind(this) })
-            );
-        }
-    }]);
-
-    return SearchBar;
-}(_react.Component);
-
 var data = [{
     "name": "法克大人",
     "position": "",
@@ -24322,6 +24275,53 @@ var data = [{
     "img": "./src/img/8.jpg",
     "id": 8
 }];
+
+var SearchBar = function (_Component) {
+    _inherits(SearchBar, _Component);
+
+    function SearchBar() {
+        _classCallCheck(this, SearchBar);
+
+        return _possibleConstructorReturn(this, (SearchBar.__proto__ || Object.getPrototypeOf(SearchBar)).apply(this, arguments));
+    }
+
+    _createClass(SearchBar, [{
+        key: 'changeText',
+        value: function changeText() {
+            this.props.onFileChange(this.refs.ipt.value);
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var inviteList = this.props.inviteList;
+
+            var arr = inviteList.map(function (ele, index) {
+                return _react2.default.createElement(
+                    'strong',
+                    { style: { color: '#262626' }, key: index },
+                    ele.name,
+                    ','
+                );
+            });
+            return _react2.default.createElement(
+                'div',
+                { className: 'search' },
+                _react2.default.createElement(
+                    'span',
+                    null,
+                    '\u4F60\u5DF2\u9080\u8BF7 ',
+                    arr.slice(0, 3),
+                    '\u9080\u8BF7 ',
+                    arr.length,
+                    ' \u4EBA'
+                ),
+                _react2.default.createElement('input', { ref: 'ipt', placeholder: '\u641C\u7D22\u4F60\u60F3\u9080\u8BF7\u7684\u4EBA', onChange: this.changeText.bind(this) })
+            );
+        }
+    }]);
+
+    return SearchBar;
+}(_react.Component);
 
 var InviteItem = function (_Component2) {
     _inherits(InviteItem, _Component2);
@@ -24456,7 +24456,7 @@ var App = function (_Component4) {
     _createClass(App, [{
         key: 'componentWillMount',
         value: function componentWillMount() {
-            window.fetch('MycodeHero.github.io/zhihu-react/data/data.txt').then(function (json) {
+            window.fetch('./data/data.txt').then(function (json) {
                 console.log(json);
             });
             var data = this.props.data;
