@@ -84,7 +84,7 @@ class App extends Component{
         }
     }
     componentWillMount(){
-        window.fetch('http:localhost:8001/zhihu/data/data.txt').then(function(json){
+        window.fetch('MycodeHero.github.io/zhihu-react/data/data.js').then(function(json){
             console.log(json)
         })
         let {data} = this.props;
