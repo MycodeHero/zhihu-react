@@ -142,7 +142,9 @@ class App extends Component{
         }
     }
     componentWillMount(){
-        window.fetch('./data/data.txt').then(function(json){
+        window.fetch('./data/data.txt').then(function(response){
+            return response.json();
+        }).then(function(json){
             console.log(json)
         })
         let {data} = this.props;

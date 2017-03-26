@@ -24456,7 +24456,9 @@ var App = function (_Component4) {
     _createClass(App, [{
         key: 'componentWillMount',
         value: function componentWillMount() {
-            window.fetch('./data/data.txt').then(function (json) {
+            window.fetch('./data/data.txt').then(function (response) {
+                return response.json();
+            }).then(function (json) {
                 console.log(json);
             });
             var data = this.props.data;
