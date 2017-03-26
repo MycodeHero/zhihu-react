@@ -1,24 +1,6 @@
 import React, {Component} from 'react';
 import ReactDom from 'react-dom';
 import '../less/index.less';
-class SearchBar extends Component{
-    changeText(){
-        this.props.onFileChange(this.refs.ipt.value);
-    }
-    render(){
-        let {inviteList} = this.props;
-        let arr = inviteList.map((ele, index)=>{
-            return <strong style={{color:'#262626'}}key = {index}>{ele.name},</strong>
-        })
-        return (
-            <div className="search">
-                <span>你已邀请 {arr.slice(0, 3)}邀请 {arr.length} 人</span>
-                <input ref='ipt' placeholder="搜索你想邀请的人" onChange={this.changeText.bind(this)}/>
-            </div>
-        )
-    }
-}
-
 var data = [
     {
         "name" : "法克大人",
@@ -77,6 +59,23 @@ var data = [
         "id" : 8
     }
 ]
+class SearchBar extends Component{
+    changeText(){
+        this.props.onFileChange(this.refs.ipt.value);
+    }
+    render(){
+        let {inviteList} = this.props;
+        let arr = inviteList.map((ele, index)=>{
+            return <strong style={{color:'#262626'}}key = {index}>{ele.name},</strong>
+        })
+        return (
+            <div className="search">
+                <span>你已邀请 {arr.slice(0, 3)}邀请 {arr.length} 人</span>
+                <input ref='ipt' placeholder="搜索你想邀请的人" onChange={this.changeText.bind(this)}/>
+            </div>
+        )
+    }
+}
 
 class InviteItem extends Component{
     onHandleClick(){
@@ -143,9 +142,9 @@ class App extends Component{
         }
     }
     componentWillMount(){
-        window.fetch('MycodeHero.github.io/zhihu-react/data/data.txt').then(function(json){
-            console.log(json)
-        })
+        // window.fetch('MycodeHero.github.io/zhihu-react/data/data.txt').then(function(json){
+        //     console.log(json)
+        // })
         let {data} = this.props;
         data.forEach((ele,index)=>{
             ele.canInvite = true;
